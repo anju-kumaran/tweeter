@@ -1,0 +1,35 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+#tweet-text {
+  background-color: #f4f1ec;
+  border: none;
+  resize: none;
+  border-bottom: 4px solid #545149;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+}
+
+footer {
+  font-family: 'Bungee';
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#btn-tweet {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btn-counter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+

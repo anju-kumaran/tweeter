@@ -86,8 +86,12 @@ div.tweets-content {
   align-items: flex-end;
 }
 
-span.user-photo-name i {
+span.user-photo-name img {
   margin-right: 10px;
+}
+
+span.user-profile-name {
+  padding-bottom: 20px;
 }
 
 span.user-id {

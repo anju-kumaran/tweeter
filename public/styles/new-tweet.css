@@ -33,3 +33,11 @@ footer {
   width: 100%;
 }
 
+.counter {
+  color: #545149;
+}
+
+.counter.exceed-limit {
+  color: red;
+}
+

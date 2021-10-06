@@ -21,12 +21,13 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   justify-content: center;
-  /*align-items: center;*/
+  align-items: center;
+ 
 }
 
 .container {
   width: 90%;
   background-color: #f4f1ec;
   position: absolute;
-  top: 500px;
+  top: 540px;
 }

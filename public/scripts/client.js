@@ -1,29 +1,5 @@
 $(document).ready(function() {
-  /*const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];*/
-
+  
   // To make a request to /tweets and receive the array of tweets as JSON
   const loadtweets = () => {
     $.ajax({
@@ -62,15 +38,14 @@ $(document).ready(function() {
   <article class="tweet">
   <header class="tweets-header">
     <div class="user-profile">
-    <div>
+      <div class="img-name">
       <span class="user-photo-name">
       <img class="fas fa-user-ninja" src="${tweet.user.avatars}">
+    </span>
+    
+    <span class="user-profile-name">
+      ${tweet.user.name}
       </span>
-      
-      <span class="user-profile-name">
-        ${tweet.user.name}
-        </span>
-      
       </div>
       <span class="user-id">${tweet.user.handle}</span>
     </div>
@@ -96,28 +71,30 @@ $(document).ready(function() {
 
   }
 
-  //renderTweets(data);
-
   $("#new-tweet-form").on("submit", function(event) {
 
     event.preventDefault();
     console.log('Form Submit...');
 
     if ($('#tweet-text').val() === '') {
-      //alert("Tweet content is empty!!!");
+      
       $('#tweet-error-long').slideUp();
       $('#tweet-error-empty').slideDown();
     } else if ($('#tweet-text').val().length > 140) {
-      //alert("Your tweet content is too long!!!");
+      
       $('#tweet-error-empty').slideUp();
       $('#tweet-error-long').slideDown();
     } else {
+      $('#tweet-error-long').slideUp();
+      $('#tweet-error-empty').slideUp();
+    
       const serializedData = $(this).serialize();
 
       $.post("/tweets", serializedData, (response) => {
         console.log(response);
         loadtweets();
         $('#tweet-text').val('');
+        $('.counter').text(140);
       });
     }
 

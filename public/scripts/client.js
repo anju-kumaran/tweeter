@@ -104,9 +104,13 @@ $(document).ready(function() {
     console.log('Form Submit...');
 
     if ($('#tweet-text').val() === '') {
-      alert("Tweet content is empty!!!");
+      //alert("Tweet content is empty!!!");
+      $('#tweet-error-long').slideUp();
+      $('#tweet-error-empty').slideDown();
     } else if ($('#tweet-text').val().length > 140) {
-      alert("Your tweet content is too long!!!");
+      //alert("Your tweet content is too long!!!");
+      $('#tweet-error-empty').slideUp();
+      $('#tweet-error-long').slideDown();
     } else {
       const serializedData = $(this).serialize();
 

@@ -124,3 +124,25 @@ div.tweets-time i {
 div.tweets-time i:hover {
   color: goldenrod;
 }
+
+#tweet-error-empty {
+  width: 100%;
+  height: 45px;
+  font-family: 'Source Sans Pro';
+  color: red;
+  background-color: #f4f1ec;
+  text-align: start;
+  border: 3px solid red;
+  display: none;
+}
+
+#tweet-error-long {
+  width: 100%;
+  height: 45px;
+  font-family: 'Source Sans Pro';
+  color: red;
+  background-color: #f4f1ec;
+  text-align: start;
+  border: 3px solid red;
+  display: none;
+}

@@ -56,9 +56,9 @@
     <main class="container">
      
       <section class="new-tweet">
-        <!--<h2>Compose Tweet</h2>-->
+        <p id="tweet-error-empty">!!!Tweet content is empty!!!</p>
+        <p id="tweet-error-long">!!!Your tweet content is too long!!!</p>
         <form id="new-tweet-form" method="POST" action="/tweets">
-          <!--<label for="tweet-text"><h5>What are you humming about?</h5></label>-->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <footer class="tweet-footer">
             <div class="btn-counter">

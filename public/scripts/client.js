@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const data = [
+  /*const data = [
     {
       "user": {
         "name": "Newton",
@@ -22,7 +22,23 @@ $(document).ready(function() {
       },
       "created_at": 1461113959088
     }
-  ];
+  ];*/
+
+  // To make a request to /tweets and receive the array of tweets as JSON
+  const loadtweets = () => {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+      success: (tweets) => {
+        console.log("data:", tweets)
+        renderTweets(tweets);
+      },
+      error: (err) => {
+        console.log(`there was an error: ${err}`)
+      }
+    })
+  };
 
   const renderTweets = function(tweets) {
    
@@ -81,7 +97,7 @@ $(document).ready(function() {
 
   }
 
-  renderTweets(data);
+  //renderTweets(data);
 
   $("#new-tweet-form").on("submit", function(event) {
 
@@ -92,6 +108,8 @@ $(document).ready(function() {
 
     $.post("/tweets", serializedData, (response) => {
       console.log(response);
+      loadtweets();
+      
     });
   });
 

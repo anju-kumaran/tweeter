@@ -109,10 +109,11 @@ $(document).ready(function() {
       alert("Your tweet content is too long!!!");
     } else {
       const serializedData = $(this).serialize();
-      
+
       $.post("/tweets", serializedData, (response) => {
         console.log(response);
         loadtweets();
+        $('#tweet-text').val('');
       });
     }
 

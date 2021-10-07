@@ -52,7 +52,7 @@ $(document).ready(function() {
       <img class="fas fa-user-ninja" src="${tweet.user.avatars}">
       </span>
       
-      <span>
+      <span class="user-profile-name">
         ${tweet.user.name}
         </span>
       
@@ -65,7 +65,7 @@ $(document).ready(function() {
   </header>
   <footer class="tweet-desc-footer">
     <div class="tweets-time">
-      <span>${timeago.format(new Date())}</span>
+      <span>${timeago.format(tweet.created_at)}</span>
       <span>
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
@@ -82,5 +82,17 @@ $(document).ready(function() {
   }
 
   renderTweets(data);
+
+  $("#new-tweet-form").on("submit", function(event) {
+
+    event.preventDefault();
+    console.log('Form Submit...');
+
+    const serializedData = $(this).serialize();
+
+    $.post("/tweets", serializedData, (response) => {
+      console.log(response);
+    });
+  });
 
 });

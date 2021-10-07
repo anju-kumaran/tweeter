@@ -44,19 +44,18 @@ $(document).ready(function() {
    
     // loops through tweets
     for (const elment in tweets) {
-    
       const tweetData = tweets[elment];
      
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweetData);
         
       // takes return value and appends it to the tweets container
-      $('.tweets-section').append($tweet);
-      
+      $('.tweets-section').append($tweet); 
     }
 
   }
 
+  // To create tweet elements.
   const createTweetElement = function(tweet) {
 
   let $tweet = `<section class="tweets-container">
@@ -104,13 +103,19 @@ $(document).ready(function() {
     event.preventDefault();
     console.log('Form Submit...');
 
-    const serializedData = $(this).serialize();
-
-    $.post("/tweets", serializedData, (response) => {
-      console.log(response);
-      loadtweets();
+    if ($('#tweet-text').val() === '') {
+      alert("Tweet content is empty!!!");
+    } else if ($('#tweet-text').val().length > 140) {
+      alert("Your tweet content is too long!!!");
+    } else {
+      const serializedData = $(this).serialize();
       
-    });
+      $.post("/tweets", serializedData, (response) => {
+        console.log(response);
+        loadtweets();
+      });
+    }
+
   });
 
 });

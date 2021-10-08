@@ -1,8 +1,10 @@
+/** CSS for the tweet submit form and tweet listing section **/
 form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+  width: 100%;
+  margin-top: 20px;
 }
 
 #tweet-text {
@@ -41,8 +43,8 @@ footer.tweet-footer {
   color: red;
 }
 
-section.tweets-container {
-  height: 210px;
+article.tweet {
+  height: 240px;
   padding: 1em;
   margin-top: 50px;
   margin-bottom: 40px;
@@ -50,20 +52,15 @@ section.tweets-container {
   border: 4px solid #545149;
 }
 
-section.tweets-container:hover {
+article.tweet:hover {
   box-shadow: 10px 10px 5px silver;
 }
 
-article.tweet header.tweets-header {
-  height: 130px;
+header.tweets-header {
+  height: 150px;
   background-color: #f4f1ec;
   border-bottom: 4px solid #545149;
-}
-
-header.tweets-header {
-
   display: flex;
-  justify-content: center;
   justify-content: space-between;
   flex-direction: column;
 }
@@ -79,9 +76,11 @@ div.user-profile {
 }
 
 div.tweets-content {
-  padding: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-bottom: 10px;
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
+  font-weight: 600;
   display: flex;
   align-items: flex-end;
 }

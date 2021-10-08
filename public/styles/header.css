@@ -1,3 +1,5 @@
+/** CSS for the header section which diplays Profile photo and Name **/
+
 header.profile-header {
   height: 400px;
   width: 100%;
@@ -8,4 +10,24 @@ header.profile-header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  top: 120px;
+  position: absolute;
+  z-index: 1; 
+}
+
+/** For Tablet: minimum width of 768px to maximum width of 1024px **/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  header.profile-header {
+    z-index: 2;
+  }
+}
+
+/** For Laptops / Desktops: minimum width of 1024px **/
+@media only screen and (min-width: 1024px) {
+  header.profile-header {
+    width: 30%;
+    float: left;
+    left: 60px;
+    top: 240px;
+  } 
 }
